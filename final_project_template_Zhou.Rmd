@@ -26,7 +26,7 @@ Association between behavior factors and internet use to obtain health informati
 
 Internet use had changed our lives dramatically in the past several decades. In 2014, 87% of U.S adults use Internet(1), while 72% of Internet users claim use of Internet to obtain health information (2) The increasing trend in use of Internet to seek health information had been observed in other countries as well (3) . Internet offers an alternative approach for individuals to obtain health information when needed. Studies suggested that Internet use facilitates improvement in health outcomes by making more health information available and easily accessible, giving social support, improving self-efficacy of the subject as well as facilitating interactions between patients and the healthcare system (4,5). Despite patients, Internet is also being used by increasing number of researchers and/or healthcare providers to collect information from individuals, to provide healthcare through emails or web-based interfaces, and to implement health interventions through online programs. Internet-based intervention programs to promote health behavior change had shown small but clinically significant effectiveness (6-9). As prevalence of access to Internet continues to increase among the general population, it is important to understand who are using the Internet to search for health information, why and how they are using it. Understanding the target population would facilitate dissemination of useful health information to patients and improved efficacy of the Internet based systems. This study is to investigate the relationship between health behavior factors and use of the Internet to seek health information using National Health Interview Survey (NHIS), a large national representative cross-sectional survey. 
 
-NHIS is a large survey that provided a broad range of information on the health of the civilian non-institutionalized population in the United States. The data is widely used by epidemiologist to monitor disease and disability trends as well as the progress of achieving national health objectives. Health policy researchers also utilize it to evaluate health programs and to identify barriers of access to care. The survey is designed using epidemiologic methods and epidemiologic methods are needed to build the model to answer the research question of interest. Bio-statistical methods are needed to analyze such large samples, to account for the multi-stage sampling design of NHIS as well as to ensure correct statistical models are build. Background information on the current status of this general topic is provided largely by joint efforts of epidemiologists, health policy researchers and health behavior researchers. For example, relationship between use of Internet to access health information and access to care was analyzed by health policy researchers since subjects had difficulties in access to care could switch to Internet to obtain information when needed(10).
+NHIS is a large survey that provided a broad range of information on the health of the civilian non-institutionalized population in the United States. The data is widely used by epidemiologist to monitor disease and disability trends as well as the progress of achieving national health objectives. Health policy researchers also utilize it to evaluate health programs and to identify barriers of access to care. The survey is designed using epidemiologic methods and epidemiologic methods are needed to build the model to answer the research question of interest. Bio-statistical methods are needed to analyze such large samples, to account for the complex multi-stage sampling design of NHIS as well as to ensure correct statistical models are build. Background information on the current status of this general topic is provided largely by joint efforts of epidemiologists, health policy researchers and health behavior researchers. For example, relationship between use of Internet to access health information and access to care was analyzed by health policy researchers since subjects had difficulties in access to care could switch to Internet to obtain information when needed(10).
 
 References:
 (1) Pew Research Center. Health Fact Sheet. http://www.pewinternet.org/fact-sheets/health-fact-sheet/ [Accessed November 1, 2015.]
@@ -44,15 +44,12 @@ References:
 In the first paragraph, describe the data used and general methodological approach. Subsequently, incorporate full R code necessary to retrieve and clean data, and perform analysis. Be sure to include a description of code so that others (including your future self) can understand what you are doing and why.
 
 Data
-This project used data from the 2014 National Health Interview Survey (NHIS). NHIS is a large cross-sectional household interview survey that collected information on a broad range of information on the health of the civilian non-institutionalized population in the United States conducted by the National Center for Health Statistics (NCHS) and the Centers for Disease Control and Prevention (CDC). Using computer-assisted personal interviewing, personal household interviews were conducted to collect health information on annual bases. The survey consisted of a core questionnaire that mainly remains unchanged every year and a supplementary survey that varies depending on current health topics. The sample design of NHIS follows a multi-stage sampling design to select households. To increase precision of the estimates of minorities, black, Hispanic, Asians aged 65 years and above are oversampled. For each family, one child aged 17 years or younger and one adult aged 18 years and above were randomly selected to complete the survey. Information on adult and child are released as separated files Sample Adult and Sample Child questionnaires respectively. This study uses the 2014 Sample Adult data. The response rate for sample adult survey was 80.5% (36,697/45,563) among all eligible adults. Thus, the published dataset by CDC included 33,697 adults aged 18 years and above, while 488 of them had a knowledgeable proxy to answer the questions for them. For this analysis, only individuals who answered questions themselves and who had completed data on all the variables of interest were included in the analysis. 
+This project used data from the 2014 National Health Interview Survey (NHIS). NHIS is a large cross-sectional household interview survey that collected information on a broad range of information on the health of the civilian non-institutionalized population in the United States conducted by the National Center for Health Statistics (NCHS) and the Centers for Disease Control and Prevention (CDC). Using computer-assisted personal interviewing, personal household interviews were conducted to collect health information on annual bases. The survey consisted of a core questionnaire that mainly remains unchanged every year and a supplementary survey that varies depending on current health topics. The sample design of NHIS follows a multi-stage sampling design to select households. To increase precision of the estimates of minorities, black, Hispanic, Asians aged 65 years and above are oversampled. For each family, one child aged 17 years or younger and one adult aged 18 years and above were randomly selected to complete the survey. Information on adult and child are released as separated files Sample Adult and Sample Child questionnaires respectively. This study uses the 2014 Sample Adult data. The response rate for sample adult survey was 80.5% (36,697/45,563) among all eligible adults. Thus, the published dataset by CDC included 33,697 adults aged 18 years and above, while 488 of them had a knowledgeable proxy to answer the questions for them and 528 of them had unknown status. For this analysis, only individuals who answered questions themselves and who had completed data on all the variables of interest were included in the analysis. 
 
 Exposure
 The exposure of interest is several behavior variables captured in the NHIS database, including the following:
 1)	Smoking status measured as current every day smoker, current some day smoker, former smoker, never smoker, and smoker (with current status unknown), or unknown if ever smoked. Those with unknown status were removed from the analysis.
-2)	Frequency of vigorous activity measured in minutes per week.
-3)	Frequency of moderate activity measured in minutes per week.
-4)	Frequency of strength activity measured in minutes per week.
-5)	Alcohol consumption measured as lifetime abstainer, former infrequent, former regular, former (unknown frequency), current infrequent, current light, current moderate, current heavier, current drinker (frequency/level unknown), and  drinking status unknown. Patients with incomplete information was dropped from the analysis. 
+2)	Alcohol consumption measured as lifetime abstainer, former infrequent, former regular, former (unknown frequency), current infrequent, current light, current moderate, current heavier, current drinker (frequency/level unknown), and  drinking status unknown. Patients with incomplete information were dropped from the analysis. 
 
 Outcome
 The outcome of interest is use of computer to obtain health information. The NHIS 2014 includes the following questions that captured computer use to obtain health information by the interviewees. 
@@ -61,92 +58,43 @@ The outcome of interest is use of computer to obtain health information. The NHI
 A composite outcome of the two outcome measures were created.
 
 Covariates
-Several covariates were included in the analysis: age, sex, race/ethnicity, marital status, frequency of computer use, internet use, email use, and enrollment in online research group. 
+Several covariates were included in the analysis including age, sex, race/ethnicity, marital status, general health status, BMI, education level, region, frequency of computer use, internet use, email use, and enrollment in online research group. Age and BMI was recorded as continous variables and were categorized in the study.
 
 Statistical method
-Demographics and measured use of computers for other purpose of subjects used computers to obtain health information versus those who did not was compared using Pearson chi-squared test. Logistic regression was used to estimate the crude and adjusted odds ratio comparing people used computer to obtain health information versus those who did not. The annual adjusted weights were applied to the regression models to account for oversampling of the minorities. 
+Demographics, general health status and measured use of computers for other purpose of the interviewees were compared using Chi squared test among people who used computers to obtain health information versus those who did not. Logistic regression was used to estimate the crude and adjusted odds ratio comparing people used computer to obtain health information versus those who did not. The annual adjusted weights were applied to the regression models to account for the multistage sampling design and oversampling of the minorities. 
 
 ```{r eval=TRUE}
 # set word directory
 setwd("/Users/meijiazhou/Documents/2015 Fall/EPID 600 Data Science/Final project")
 getwd()
-# input Stata file of NHIS2014 adult data 
+# input Stata file of NHIS2014 sample adult data (This sample adult dataset was merged with person data to get education level variable from that dataset. Then only sample adults' records were kept in the dataset.)
 library(foreign)
-mydata <- read.dta("/Users/meijiazhou/Documents/2015 Fall/EPID 600 Data Science/Final project/samadult12.dta")
+mydata <- read.dta("/Users/meijiazhou/Documents/2015 Fall/EPID 600 Data Science/Final project/data2014.dta")
 str(mydata)
-# There were 36697 observations and 787 variables in the original dataset
+
+# There were 36697 observations and 1411 variables in the original dataset 
 # Create a dataset with variables of interest 
 ## my.data 
-my.data<-subset(mydata, select=c(wtia_sa, region, strat_p, psu_p, sex, racerpi2, age_p, r_maritl, proxysa, hypev, hypyr1, hypmed2, chlev, chlyr, chlmdnw2, chdev, angev, miev, hrtev, strev, ephev, copdev, aasmev, ulcev, ulcyr, canev, dibev, cbrchyr, kidwkyr, livyr, arth1, pregnow, pregflyr, hrintnet, hrinthl, hrintha, hrinttn, hrintdz, hrinthp, hrinthpr, smkstat2, cigqtyr, tobqtyr, ecigev, eciged, vigfreqw, modfreqw, strfreqw, alcstat, aheight, aweightp, bmi, hit1a, hit5a, apsdiet, apssmkc, asicpuse, awebuse, awebofno, aweboftp, aweborp, awebeml, awebmno, awebmtp))
+my.data<-subset(mydata, select=c(wtia_sa, region, strat_p, psu_p, sex, racerpi2, age_p, r_maritl, proxysa, educ1, phstat, smkstat2, alcstat, bmi, hit1a, hit5a, asicpuse, awebuse, aweborp, awebeml))
 str(my.data)
 
-## create analytic dataset with complete cases - look into each variable of interest and remove the categories with missing data (or unknown responses in certain cases)
-# Exposure of interests
 library(dplyr)
-# smoking 
-levels(my.data$smkstat2)
-table(my.data$smkstat2)
+## Data cleaning ##
+# Mark people answered the question by an proxy
+table(my.data$proxysa)
 my.data <- my.data  %>% 
-    mutate(smkstat2 = ifelse(as.numeric(smkstat2)==5, NA, smkstat2)) %>%  
-    filter(!is.na(smkstat2))
-my.data <- my.data  %>% 
-    mutate(smkstat2 = ifelse(as.numeric(smkstat2)==6, NA, smkstat2)) %>%  
-    filter(!is.na(smkstat2))
-my.data$smkstat2<-factor(my.data$smkstat2, labels=c("current every day smoker", "current some day smoker", "former smoker", "never smoker")) 
-new.levels<-c(3,2,1,0)
-my.data$smkstat2<-factor(new.levels[my.data$smkstat2])
-my.data$smkstat2<-factor(my.data$smkstat2, labels=c("never smoker", "former smoker", "current some day smoker", "current every day smoker"))  
-table(my.data$smkstat2)
+    mutate(proxysa = ifelse(as.numeric(proxysa)==1, NA, proxysa)) %>%
+    mutate(proxysa = ifelse(as.numeric(proxysa)==3, NA, proxysa)) 
+table(my.data$proxysa)
 
-# physical activity - vigorous activity
-table(my.data$vigfreqw)
-summary(my.data$vigfreqw)
-
-# physical activity - moderate activity 
-table(my.data$modfreqw)
-summary(my.data$modfreqw)
-
-# physical activity - strength activity 
-table(my.data$strfreqw)
-summary(my.data$strfreqw)
-
-# alcohol consumption
-levels(my.data$alcstat)
-table(my.data$alcstat)
-my.data <- my.data  %>% 
-    mutate(alcstat = ifelse(as.numeric(alcstat)==4, NA, alcstat)) %>%  
-    filter(!is.na(alcstat))
-my.data <- my.data  %>% 
-    mutate(alcstat = ifelse(as.numeric(alcstat)==9, NA, alcstat)) %>%  
-    filter(!is.na(alcstat))
-my.data <- my.data  %>% 
-    mutate(alcstat = ifelse(as.numeric(alcstat)==10, NA, alcstat)) %>%  
-    filter(!is.na(alcstat))
-my.data$alcstat<-factor(my.data$alcstat, labels=c("Lifetime abstainer", "Former infrequent", "Former regular", "Current infrequent", "Current light", "Current moderate", "Current heavier"))
-new.levels<-c(0,1,2,3,4,5,6)
-my.data$alcstat<-factor(new.levels[my.data$alcstat])
-my.data$alcstat<-factor(my.data$alcstat, labels=c("Lifetime abstainer", "Former infrequent", "Former regular", "Current infrequent", "Current light", "Current moderate", "Current heavier"))  
-table(my.data$alcstat)
-
-# re-group as "Lifetime abstainer", "Former drinker", "Current light drinker", "Current moderate-heavier drinker"
-my.data$alcstat2<-my.data$alcstat
-new.levels<-c(0,1,1,2,2,3,3)
-my.data$alcstat2<-factor(new.levels[my.data$alcstat2])
-my.data$alcstat2<-factor(my.data$alcstat2, labels=c("Lifetime abstainer", "Former drinker", "Current light drinker", "Current moderate-heavier drinker"))  
-table(my.data$alcstat2)
-
+## create analytic dataset with complete cases - look into each variable of interest and remove the categories with missing data (or unknown responses in certain cases)
 # outcome variables
 # Use of internet to look for health info
 table(my.data$hit1a)
 my.data <- my.data  %>% 
     mutate(hit1a = ifelse(as.numeric(hit1a)==3, NA, hit1a)) %>%  
-    filter(!is.na(hit1a))
-my.data <- my.data  %>% 
     mutate(hit1a = ifelse(as.numeric(hit1a)==4, NA, hit1a)) %>%  
-    filter(!is.na(hit1a))
-my.data <- my.data  %>% 
-    mutate(hit1a = ifelse(as.numeric(hit1a)==5, NA, hit1a)) %>%  
-    filter(!is.na(hit1a))
+    mutate(hit1a = ifelse(as.numeric(hit1a)==5, NA, hit1a))
 my.data$hit1a<-factor(my.data$hit1a, labels=c("Yes", "No"))  
 new.levels<-c(1,0)
 my.data$hit1a<-factor(new.levels[my.data$hit1a])
@@ -157,13 +105,8 @@ table(my.data$hit1a)
 table(my.data$hit5a)
 my.data <- my.data  %>% 
     mutate(hit5a = ifelse(as.numeric(hit5a)==3, NA, hit5a)) %>%  
-    filter(!is.na(hit5a))
-my.data <- my.data  %>% 
     mutate(hit5a = ifelse(as.numeric(hit5a)==4, NA, hit5a)) %>%  
-    filter(!is.na(hit5a))
-my.data <- my.data  %>% 
-    mutate(hit5a = ifelse(as.numeric(hit5a)==5, NA, hit5a)) %>%  
-    filter(!is.na(hit5a))
+    mutate(hit5a = ifelse(as.numeric(hit5a)==5, NA, hit5a)) 
 new.levels<-c(1,0)
 my.data$hit5a<-factor(new.levels[my.data$hit5a])
 my.data$hit5a<-factor(my.data$hit5a, labels=c("No", "Yes"))  
@@ -175,62 +118,88 @@ my.data$hit5a<-as.numeric(my.data$hit5a)
 my.data$outcome<-(my.data$hit1a + my.data$hit5a)
 my.data$outcome<-as.factor(my.data$outcome)
 table(my.data$outcome)
-new.levels<-c(1,1,0)
+new.levels<-c(0,1,1)
 my.data$outcome<-factor(new.levels[my.data$outcome])
 my.data$outcome<-factor(my.data$outcome, labels=c("No", "Yes"))  
 table(my.data$outcome)
 
-## covariates of interest
-# demographics: 
+## Covariates of interest
+## demographics: 
 # age(age_p)
 summary(my.data$age_p)
+# categorized age into groups
+my.data$agecat<-cut(my.data$age_p, breaks=c(18, 45, 65, Inf), labels=c("18-45", "46-65", "65+"))
+table(my.data$agecat)
+
 # gender(sex)
 table(my.data$sex)
+
 # marital status (r_maritl) - remove those with unknown status
 table(my.data$r_maritl)
 my.data <- my.data  %>% 
-    mutate(r_maritl = ifelse(as.numeric(r_maritl)==1, NA, r_maritl)) %>%  
-    filter(!is.na(r_maritl))
-my.data <- my.data  %>% 
-    mutate(r_maritl = ifelse(as.numeric(r_maritl)==10, NA, r_maritl)) %>%  
-    filter(!is.na(r_maritl))
+    mutate(r_maritl = ifelse(as.numeric(r_maritl)==1, NA, r_maritl)) %>%
+    mutate(r_maritl = ifelse(as.numeric(r_maritl)==10, NA, r_maritl)) 
 my.data$r_maritl<-factor(my.data$r_maritl)  
 table(my.data$r_maritl)
 levels(my.data$r_maritl)
-# marital status (r_maritl) - re-categorized into new groups: Never Married, Married/Living with Partner, Divorced/Seperated, Widowed
+# re-categorized marital status into new groups: Never Married, Married/Living with Partner, Divorced/Seperated, Widowed
 new.levels<-c(1,1,3,2,2,0,1)
 my.data$r_maritl<-factor(new.levels[my.data$r_maritl])
 my.data$r_maritl<-factor(my.data$r_maritl, labels=c("Never Married", "Married/Living with Partner", "Divorced/Seperated", "Widowed"))  
 levels(my.data$r_maritl)
 table(my.data$r_maritl)
+
 # region(region)
 table(my.data$region)
-#race(racerpI2)
+
+# race(racerpi2)
 table(my.data$racerpi2) 
 levels(my.data$racerpi2)
 new.levels<-c(1,2,3,4,5,5)
 my.data$racerpi2<-factor(new.levels[my.data$racerpi2])
+# categorize race into new groups
 my.data$racerpi2<-factor(my.data$racerpi2, labels=c("White", "Black/Aferican American", "American Indian Alaska Native", "Asian", "Multiple race/Other"))
 levels(my.data$racerpi2)
 table(my.data$racerpi2)
 
-# create categorical variable for bmi
+# BMI - create categorical variable for bmi
 summary(my.data$bmi)
 my.data$bmicat<-cut(my.data$bmi, breaks=c(0, 18.5, 24.9, 29.9, 35, Inf), labels=c("underweight", "healthy", "overweight", "obese", "morbidly_obese"))
 table(my.data$bmicat)
 
-## computer use
+# Education level
+table(my.data$educ1) 
+my.data <- my.data  %>% 
+    mutate(educ1 = ifelse(as.numeric(educ1)==23, NA, educ1)) %>%
+    mutate(educ1 = ifelse(as.numeric(educ1)==24, NA, educ1)) %>%
+    mutate(educ1 = ifelse(as.numeric(educ1)==25, NA, educ1)) %>%
+    mutate(educ1 = ifelse(as.numeric(educ1)==26, NA, educ1))
+table(my.data$educ1) 
+# re-categorized into new groups: Less than high school, High School/GED, Associate, Bachelor, Graduate degree
+new.levels<-c(0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,2,2,2,3,4,4,4)
+my.data$educ1<-factor(new.levels[my.data$educ1])
+my.data$educ1<-factor(my.data$educ1, labels=c("Less than High School", "High School/GED", "Associate", "Bachelor", "Graduate Degree"))  
+table(my.data$educ1)
+
+## General health status
+table(my.data$phstat)
+my.data <- my.data  %>% 
+    mutate(phstat = ifelse(as.numeric(phstat)==6, NA, phstat)) %>%
+    mutate(phstat = ifelse(as.numeric(phstat)==7, NA, phstat)) %>%
+    mutate(phstat = ifelse(as.numeric(phstat)==8, NA, phstat))
+table(my.data$phstat) 
+new.levels<-c(0,1,2,3,4)
+my.data$phstat<-factor(new.levels[my.data$phstat])
+my.data$phstat<-factor(my.data$phstat, labels=c("Excellent", "Very Good", "Good", "Fair", "Poor"))  
+table(my.data$phstat)
+
+## Other measures of computer use
 # freq of computer use
 table(my.data$asicpuse) 
 my.data <- my.data  %>% 
     mutate(asicpuse = ifelse(as.numeric(asicpuse)==5, NA, asicpuse)) %>%  
-    filter(!is.na(asicpuse))
-my.data <- my.data  %>% 
     mutate(asicpuse = ifelse(as.numeric(asicpuse)==6, NA, asicpuse)) %>%  
-    filter(!is.na(asicpuse))
-my.data <- my.data  %>% 
-    mutate(asicpuse = ifelse(as.numeric(asicpuse)==7, NA, asicpuse)) %>%  
-    filter(!is.na(asicpuse))
+    mutate(asicpuse = ifelse(as.numeric(asicpuse)==7, NA, asicpuse))  
 my.data$asicpuse<-factor(my.data$asicpuse, labels=c("Never or almost never", "Some days", "Most days", "Every day"))  
 table(my.data$asicpuse)
 
@@ -238,13 +207,8 @@ table(my.data$asicpuse)
 table(my.data$awebuse) 
 my.data <- my.data  %>% 
     mutate(awebuse = ifelse(as.numeric(awebuse)==3, NA, awebuse)) %>%  
-    filter(!is.na(awebuse))
-my.data <- my.data  %>% 
     mutate(awebuse = ifelse(as.numeric(awebuse)==4, NA, awebuse)) %>%  
-    filter(!is.na(awebuse))
-my.data <- my.data  %>% 
-    mutate(awebuse = ifelse(as.numeric(awebuse)==5, NA, awebuse)) %>%  
-    filter(!is.na(awebuse))
+    mutate(awebuse = ifelse(as.numeric(awebuse)==5, NA, awebuse))
 my.data$awebuse<-factor(my.data$awebuse, labels=c("Yes", "No"))  
 table(my.data$awebuse) 
 
@@ -252,13 +216,8 @@ table(my.data$awebuse)
 table(my.data$awebeml) 
 my.data <- my.data  %>% 
     mutate(awebeml = ifelse(as.numeric(awebeml)==3, NA, awebeml)) %>%  
-    filter(!is.na(awebeml))
-my.data <- my.data  %>% 
     mutate(awebeml = ifelse(as.numeric(awebeml)==4, NA, awebeml)) %>%  
-    filter(!is.na(awebeml))
-my.data <- my.data  %>% 
-    mutate(awebeml = ifelse(as.numeric(awebeml)==5, NA, awebeml)) %>%  
-    filter(!is.na(awebeml))
+    mutate(awebeml = ifelse(as.numeric(awebeml)==5, NA, awebeml))
 my.data$awebeml<-factor(my.data$awebeml, labels=c("Yes", "No"))  
 table(my.data$awebeml) 
 
@@ -266,118 +225,248 @@ table(my.data$awebeml)
 table(my.data$aweborp) 
 my.data <- my.data  %>% 
     mutate(aweborp = ifelse(as.numeric(aweborp)==3, NA, aweborp)) %>%  
-    filter(!is.na(aweborp))
-my.data <- my.data  %>% 
     mutate(aweborp = ifelse(as.numeric(aweborp)==4, NA, aweborp)) %>%  
-    filter(!is.na(aweborp))
-my.data <- my.data  %>% 
-    mutate(aweborp = ifelse(as.numeric(aweborp)==5, NA, aweborp)) %>%  
-    filter(!is.na(aweborp))
+    mutate(aweborp = ifelse(as.numeric(aweborp)==5, NA, aweborp)) 
 my.data$aweborp<-factor(my.data$aweborp, labels=c("yes", "no"))  
 table(my.data$aweborp) 
 
+## Exposure of interests
+# smoking 
+levels(my.data$smkstat2)
+table(my.data$smkstat2)
+my.data <- my.data  %>% 
+    mutate(smkstat2 = ifelse(as.numeric(smkstat2)==5, NA, smkstat2)) %>%  
+    mutate(smkstat2 = ifelse(as.numeric(smkstat2)==6, NA, smkstat2)) 
+my.data$smkstat2<-factor(my.data$smkstat2, labels=c("current every day smoker", "current some day smoker", "former smoker", "never smoker")) 
+new.levels<-c(3,2,1,0)
+my.data$smkstat2<-factor(new.levels[my.data$smkstat2])
+my.data$smkstat2<-factor(my.data$smkstat2, labels=c("never smoker", "former smoker", "current some day smoker", "current every day smoker"))  
+table(my.data$smkstat2)
+
+# alcohol consumption
+levels(my.data$alcstat)
+table(my.data$alcstat)
+my.data <- my.data  %>% 
+    mutate(alcstat = ifelse(as.numeric(alcstat)==4, NA, alcstat)) %>%  
+    mutate(alcstat = ifelse(as.numeric(alcstat)==9, NA, alcstat)) %>%  
+    mutate(alcstat = ifelse(as.numeric(alcstat)==10, NA, alcstat)) 
+my.data$alcstat<-factor(my.data$alcstat, labels=c("Lifetime abstainer", "Former infrequent", "Former regular", "Current infrequent", "Current light", "Current moderate", "Current heavier"))
+new.levels<-c(0,1,2,3,4,5,6)
+my.data$alcstat<-factor(new.levels[my.data$alcstat])
+my.data$alcstat<-factor(my.data$alcstat, labels=c("Lifetime abstainer", "Former infrequent", "Former regular", "Current infrequent", "Current light", "Current moderate", "Current heavier"))  
+table(my.data$alcstat)
+# re-group as "Lifetime abstainer", "Former drinker", "Current light drinker", "Current moderate-heavier drinker"
+my.data$alcstat2<-my.data$alcstat
+new.levels<-c(0,1,1,2,2,3,3)
+my.data$alcstat2<-factor(new.levels[my.data$alcstat2])
+my.data$alcstat2<-factor(my.data$alcstat2, labels=c("Lifetime abstainer", "Former drinker", "Current light drinker", "Current moderate-heavier drinker"))  
+table(my.data$alcstat2)
 ```
 
 ### Results
 Describe your results and include relevant tables, plots, and code/comments used to obtain them. End with a brief conclusion of your findings related to the question you set out to address.
 
 ```{r eval=TURE}
-## descriptive analysis 
-# distribution of covariates
-library(ggplot2)
-install.packages("gmodels")
-library(gmodels)
-install.packages("weights")
-library(weights)
-qplot(outcome, age_p, data=my.data, geom="boxplot", color=outcome) # age by outcome
-CrossTable(my.data$outcome, my.data$sex) # gender by outcome
-CrossTable(my.data$outcome, my.data$r_maritl) # marital status by outcome
-CrossTable(my.data$outcome, my.data$r_maritl) # region by outcome
-CrossTable(my.data$outcome, my.data$racerpi2) # race by outcome
-CrossTable(my.data$outcome, my.data$bmi) # bmi by outcome
-CrossTable(my.data$outcome, my.data$asicpuse) # computer use by outcome
-CrossTable(my.data$outcome, my.data$awebuse) # internet use by outcome
-CrossTable(my.data$outcome, my.data$aweborp) # aweborp use by outcome
-CrossTable(my.data$outcome, my.data$smkstat2) # smoking status by outcome
-qplot(outcome, vigfreqw, data=my.data, geom="boxplot", color=outcome) # vigarous activity by outcome
-qplot(outcome, modfreqw, data=my.data, geom="boxplot", color=outcome) # moderate activity by outcome
-qplot(outcome, strfreqw, data=my.data, geom="boxplot", color=outcome) # strength activity by outcome
-CrossTable(my.data$outcome, my.data$alcstat) # alcohol status by outcome
+####  using the survey package to account for the complex design of the NHIS survey
+library(survey)
+## create svydesign 
+nhissvy <- svydesign(id=~psu_p, strata=~strat_p, nest=TRUE, weights=~wtia_sa, data=my.data)
+nhis.complete <- na.omit(nhissvy)
+summary(nhissvy)
+
+## Descriptive analysis - Compare the proportions of people within each categories of the covariate between subjects who reported use of internet to look for health information vs. those who did not. Present table of proportions by dependent variable group, plot the distributions and perform Chi sqaured test for each independent variable.
+# Proportion of exposures and covariates by outcome
+# Exposures
+# smoking status
+a<-svyby( ~smkstat2, ~outcome, nhissvy, svymean, na.rm=TRUE)
+a
+colors<-c("lightblue", "mistyrose", "lightcyan", "lavender")
+barplot(a, beside=TRUE, main="Distribution of Smoking Status by Use of Internet \n to Seek Health Information", ylab="Percentage", ylim=c(0.0, 1.0), cex.lab=0.8, cex.main=1.0, cex.axis=0.8, col=colors, space=NULL)
+legend("topright", legend=c("Never smoker", "Former smoker", "Some day smoker", "Every day smoker"), fill=colors, cex=0.60)
+svychisq(~outcome+smkstat2, design=nhissvy)
+
+# drinking status
+a<-svyby( ~alcstat2, ~outcome, nhissvy, svymean, na.rm=TRUE)
+a
+colors<-c("lightblue", "mistyrose", "lightcyan", "lavender")
+barplot(a, beside=TRUE, main="Distribution of Alcohol Drinking Status by Use of Internet \n to Seek Health Information", ylab="Percentage", ylim=c(0.0, 1.0), cex.lab=0.8, cex.main=1.0, cex.axis=0.8, col=colors, space=NULL)
+legend("topright", legend=c("Lifetime abstainer", "Former drinker", "Current light drinker", "Current moderate-heavy drinker"), fill=colors, cex=0.60)
+svychisq(~outcome+alcstat2, design=nhissvy)
+
+# Covariates
+# Social demographics
+# age groups
+colors<-c("lightblue", "mistyrose", "lightcyan")
+a<-svyby( ~agecat, ~outcome, nhissvy, svymean, na.rm=TRUE)
+a
+barplot(a, beside=TRUE, main="Distribution of Age Groups by Use of Internet \n to Seek Health Information", ylab="Percentage", ylim=c(0.0, 1.0), cex.lab=0.8, cex.main=1.0, cex.axis=0.8, col=colors, space=NULL)
+legend("topright", legend=c("Age 18-45", "Age 46-65", "Age 65+"), fill=colors, cex=0.60)
+svychisq(~outcome+agecat, design=nhissvy)
+
+# Gender
+colors<-c("lightblue", "mistyrose")
+a<-svyby( ~sex, ~outcome, nhissvy, svymean, na.rm=TRUE)
+a
+barplot(a, beside=TRUE, main="Distribution of Sex by Use of Internet \n to Seek Health Information", ylab="Percentage", ylim=c(0.0, 1.0), cex.lab=0.8, cex.main=1.0, cex.axis=0.8, col=colors, space=NULL)
+legend("topright", legend=c("Male", "Female"), fill=colors, cex=0.60)
+svychisq(~outcome+sex, design=nhissvy)
+
+# marital status
+a<-svyby( ~r_maritl, ~outcome, nhissvy, svymean, na.rm=TRUE)
+a
+colors<-c("lightblue", "mistyrose", "lightcyan", "lavender")
+barplot(a, beside=TRUE, main="Distribution of Marital Status by Use of Internet \n to Seek Health Information", ylab="Percentage", ylim=c(0.0, 1.0), cex.lab=0.8, cex.main=1.0, cex.axis=0.8, col=colors, space=NULL)
+legend("topright", legend=c("Never married", "Married/Living with Partner", "Divorsed/Seperated", "Widowed"), fill=colors, cex=0.60)
+svychisq(~outcome+r_maritl, design=nhissvy)
+
+# region
+a<-svyby( ~region, ~outcome, nhissvy, svymean, na.rm=TRUE)
+a
+colors<-c("lightblue", "mistyrose", "lightcyan", "lavender")
+barplot(a, beside=TRUE, main="Distribution of Geographic Region by Use of Internet \n to Seek Health Information", ylab="Percentage", ylim=c(0.0, 1.0), cex.lab=0.8, cex.main=1.0, cex.axis=0.8, col=colors, space=NULL)
+legend("topright", legend=c("Northeast", "Midwest", "South", "West"), fill=colors, cex=0.60)
+svychisq(~outcome+region, design=nhissvy)
+
+# race/ethnicity
+a<-svyby( ~racerpi2, ~outcome, nhissvy, svymean, na.rm=TRUE)
+a
+colors<-c("lightblue", "mistyrose", "lightcyan", "lavender","cornsilk")
+barplot(a, beside=TRUE, main="Distribution of Race/Ethnicity Group by Use of Internet \n to Seek Health Information", ylab="Percentage", ylim=c(0.0, 1.0), cex.lab=0.8, cex.main=1.0, cex.axis=0.8, col=colors, space=NULL)
+legend("topright", legend=c("White", "Black/Aferican American", "American Indian Alaska Native", "Asian", "Multiple racte/Other"), fill=colors, cex=0.5)
+svychisq(~outcome+racerpi2, design=nhissvy)
+
+# BMI
+a<-svyby( ~bmicat, ~outcome, nhissvy, svymean, na.rm=TRUE)
+a
+colors<-c("lightblue", "mistyrose", "lightcyan", "lavender","cornsilk")
+barplot(a, beside=TRUE, main="Distribution of BMI by Use of Internet \n to Seek Health Information", ylab="Percentage", ylim=c(0.0, 1.0), cex.lab=0.8, cex.main=1.0, cex.axis=0.8, col=colors, space=NULL)
+legend("topright", legend=c("Underweight", "Healthy", "Overweight", "Obese", "Morbidly Obese"), fill=colors, cex=0.6)
+svychisq(~outcome+bmicat, design=nhissvy)
+
+# Education level
+a<-svyby( ~educ1, ~outcome, nhissvy, svymean, na.rm=TRUE)
+a
+colors<-c("lightblue", "mistyrose", "lightcyan", "lavender","cornsilk")
+barplot(a, beside=TRUE, main="Distribution of Education Level by Use of Internet \n to Seek Health Information", ylab="Percentage", ylim=c(0.0, 1.0), cex.lab=0.8, cex.main=1.0, cex.axis=0.8, col=colors, space=NULL)
+legend("topright", legend=c("Less than highschool", "Higher school/GED", "Associate", "Bachelor", "Graduate"), fill=colors, cex=0.6)
+svychisq(~outcome+educ1, design=nhissvy)
+
+# General health status
+a<-svyby( ~phstat, ~outcome, nhissvy, svymean, na.rm=TRUE)
+a
+colors<-c("lightblue", "mistyrose", "lightcyan", "lavender","cornsilk")
+barplot(a, beside=TRUE, main="Distribution of General Health Status by Use of Internet \n to Seek Health Information", ylab="Percentage", ylim=c(0.0, 1.0), cex.lab=0.8, cex.main=1.0, cex.axis=0.8, col=colors, space=NULL)
+legend("topright", legend=c("Excellent", "Very Good", "Good ", "Fair", "Poor"), fill=colors, cex=0.6)
+svychisq(~outcome+phstat, design=nhissvy)
+
+# Frequency of Computer use
+a<-svyby( ~asicpuse, ~outcome, nhissvy, svymean, na.rm=TRUE)
+a
+colors<-c("lightblue", "mistyrose", "lightcyan", "lavender")
+barplot(a, beside=TRUE, main="Distribution of Frequency of Computer Use by Use of Internet \n to Seek Health Information", ylab="Percentage", ylim=c(0.0, 1.0), cex.lab=0.8, cex.main=1.0, cex.axis=0.8, col=colors, space=NULL)
+legend("topleft", legend=c("Never", "Some days", "Most days", "Every day"), fill=colors, cex=0.6)
+svychisq(~outcome+asicpuse, design=nhissvy)
+
+# Internet use
+a<-svyby( ~awebuse, ~outcome, nhissvy, svymean, na.rm=TRUE)
+a
+colors<-c("lightblue", "mistyrose")
+barplot(a, beside=TRUE, main="Distribution of Reported Internet Use by Use of Internet \n to Seek Health Information", ylab="Percentage", ylim=c(0.0, 1.0), cex.lab=0.8, cex.main=1.0, cex.axis=0.8, col=colors, space=NULL)
+legend("topright", legend=c("Yes", "No"), fill=colors, cex=0.6)
+svychisq(~outcome+awebuse, design=nhissvy)
+
+# Email use
+a<-svyby( ~aweborp, ~outcome, nhissvy, svymean, na.rm=TRUE)
+a
+colors<-c("lightblue", "mistyrose")
+barplot(a, beside=TRUE, main="Distribution of Reported Email Use by Use of Internet \n to Seek Health Information", ylab="Percentage", ylim=c(0.0, 1.0), cex.lab=0.8, cex.main=1.0, cex.axis=0.8, col=colors, space=NULL)
+legend("topleft", legend=c("Yes", "No"), fill=colors, cex=0.6)
+svychisq(~outcome+aweborp, design=nhissvy)
+
+# Enrollment in online research group
+a<-svyby( ~aweborp, ~outcome, nhissvy, svymean, na.rm=TRUE)
+a
+colors<-c("lightblue", "mistyrose")
+barplot(a, beside=TRUE, main="Distribution of Reported Enrollment in an Online Research Panel  \n by Use of Internet to Seek Health Information", ylab="Percentage", ylim=c(0.0, 1.0), cex.lab=0.8, cex.main=1.0, cex.axis=0.8, col=colors, space=NULL)
+legend("topleft", legend=c("Yes", "No"), fill=colors, cex=0.6)
+svychisq(~outcome+aweborp, design=nhissvy)
+
 ```
 
-Of 36,697 adults who completed the adult sample survey, 25,229 subjects with completed information on all variables of interest were included in this analysis. 
+Of 36,697 adults who completed the adult sample survey, 24,688 (67.3%) subjects with completed information on all variables of interest were included in this analysis. The Chi squared tests suggested significant differences in the proportions of each covariates between participants who used internet to seek health information and those who did not. From the bar plots of distribition of covariates by the group of using internet to seek health information, there were notable differences between the distributions of covariates within the two groups, especially for smoking status, alcohol drinkng status, age groups, marital status, education level, BMI,  general health status, and freqency of computer use. 
 
 ```{r eval=TURE}
-## fit logistic regression 
-# simple logistic regression
-# covariates
-glm1 <- glm(outcome ~ age_p, data=my.data, family=binomial(logit), w=wtia_sa)
-summary(glm1)
-exp(summary(glm1)$coefficients)
-glm2 <- glm(outcome ~ factor(sex), data=my.data, family=binomial(logit), w=wtia_sa)
-summary(glm2)
-exp(confint(glm2))
-exp(summary(glm2)$coefficients)
-glm3 <- glm(outcome ~ factor(r_maritl), data=my.data, family=binomial(logit), w=wtia_sa)
-summary(glm3)
-exp(summary(glm3)$coefficients)
-glm4 <- glm(outcome ~ factor(region), data=my.data, family=binomial(logit), w=wtia_sa)
-summary(glm4)
-exp(summary(glm4)$coefficients)
-glm5 <- glm(outcome ~ factor(racerpi2), data=my.data, family=binomial(logit), w=wtia_sa)
-summary(glm5)
-exp(summary(glm5)$coefficients)
-glm6 <- glm(outcome ~ factor(bmicat), data=my.data, family=binomial(logit), w=wtia_sa)
-summary(glm6)
-exp(summary(glm6)$coefficients)
-glm7 <- glm(outcome ~ factor(asicpuse), data=my.data, family=binomial(logit), w=wtia_sa)
-summary(glm7)
-exp(summary(glm7)$coefficients)
-glm8 <- glm(outcome ~ factor(awebuse), data=my.data, family=binomial(logit), w=wtia_sa)
-summary(glm8)
-exp(summary(glm8)$coefficients)
-glm9 <- glm(outcome ~ factor(awebeml), data=my.data, family=binomial(logit), w=wtia_sa)
-summary(glm9)
-exp(summary(glm9)$coefficients)
-glm10 <- glm(outcome ~ factor(aweborp), data=my.data, family=binomial(logit), w=wtia_sa)
-summary(glm10)
-exp(summary(glm10)$coefficients)
-glm11 <- glm(outcome ~ factor(smkstat2), data=my.data, family=binomial(logit), w=wtia_sa)
-summary(glm11)
-exp(summary(glm11)$coefficients)
-glm12 <- glm(outcome ~ vigfreqw, data=my.data, family=binomial(logit), w=wtia_sa)
-summary(glm12)
-exp(summary(glm12)$coefficients)
-glm13 <- glm(outcome ~ modfreqw, data=my.data, family=binomial(logit), w=wtia_sa)
-summary(glm13)
-exp(summary(glm13)$coefficients)
-glm14 <- glm(outcome ~ strfreqw, data=my.data, family=binomial(logit), w=wtia_sa)
-summary(glm14)
-exp(summary(glm14)$coefficients)
-glm15 <- glm(outcome ~ factor(alcstat), data=my.data, family=binomial(logit), w=wtia_sa)
-summary(glm15)
-exp(summary(glm15)$coefficients)
-# multiple logistic regression
-glm16 <- glm(outcome ~ factor(smkstat2) + vigfreqw + modfreqw + strfreqw + factor(alcstat) + age_p + factor(sex) + factor(r_maritl) + factor(region) + factor(racerpi2) + factor(bmicat) + factor(asicpuse) +  factor(awebeml) + factor(aweborp), data=my.data, family=binomial(logit), w=wtia_sa)
-summary(glm16)
-exp(confint(glm16))
-exp(summary(glm16)$coefficients)
-glm17 <- glm(outcome ~ factor(smkstat2) + age_p + factor(sex) + factor(r_maritl) + factor(region) + factor(racerpi2) + factor(bmicat) + factor(asicpuse) +  factor(awebeml) + factor(aweborp), family=binomial(logit), w=wtia_sa)
-summary(glm17)
-exp(confint(glm17))
-exp(summary(glm17)$coefficients)
-glm18 <- glm(outcome ~ vigfreqw + age_p + factor(sex) + factor(r_maritl) + factor(region) + factor(racerpi2) + factor(bmicat) + factor(asicpuse) +  factor(awebeml) + factor(aweborp), data=my.data, family=binomial(logit), w=wtia_sa)
-summary(glm18)
-exp(confint(glm18))
-glm19 <- glm(outcome ~  modfreqw + age_p + factor(sex) + factor(r_maritl) + factor(region) + factor(racerpi2) + factor(bmicat) + factor(asicpuse) +  factor(awebeml) + factor(aweborp), data=my.data, family=binomial(logit), w=wtia_sa)
-summary(glm19)
-exp(confint(glm19))
-glm20 <- glm(outcome ~ strfreqw + age_p + factor(sex) + factor(r_maritl) + factor(region) + factor(racerpi2) + factor(bmicat) + factor(asicpuse) +  factor(awebeml) + factor(aweborp), data=my.data, family=binomial(logit), w=wtia_sa)
-summary(glm20)
-exp(confint(glm20))
-glm21 <- glm(outcome ~ factor(alcstat) + age_p + factor(sex) + factor(r_maritl) + factor(region) + factor(racerpi2) + factor(bmicat) + factor(asicpuse) +  factor(awebeml) + factor(aweborp), data=my.data, family=binomial(logit), w=wtia_sa)
-summary(glm21)
-exp(confint(glm21))
+## Univariate analysis
+# Univariate analysis for each covariates
+# Age groups
+exp(summary(svyglm(outcome ~ factor(agecat),family=quasibinomial, design=nhissvy, na.action=na.omit))$coefficient)
+# Gender
+exp(summary(svyglm(outcome ~ factor(sex),family=quasibinomial, design=nhissvy, na.action=na.omit))$coefficient)
+# Marital status
+exp(summary(svyglm(outcome ~ factor(r_maritl),family=quasibinomial, design=nhissvy, na.action=na.omit))$coefficient)
+# Region
+exp(summary(svyglm(outcome ~ factor(region),family=quasibinomial, design=nhissvy, na.action=na.omit))$coefficient)
+# Race/Ethnicity
+exp(summary(svyglm(outcome ~ factor(racerpi2),family=quasibinomial, design=nhissvy, na.action=na.omit))$coefficient)
+# BMI
+exp(summary(svyglm(outcome ~ factor(bmicat),family=quasibinomial, design=nhissvy, na.action=na.omit))$coefficient)
+# Education level
+exp(summary(svyglm(outcome ~ factor(educ1),family=quasibinomial, design=nhissvy, na.action=na.omit))$coefficient)
+# General health status
+exp(summary(svyglm(outcome ~ factor(phstat),family=quasibinomial, design=nhissvy, na.action=na.omit))$coefficient)
+# Frequency of computer use
+exp(summary(svyglm(outcome ~ factor(asicpuse),family=quasibinomial, design=nhissvy, na.action=na.omit))$coefficient)
+# Internet use - Yes/No
+exp(summary(svyglm(outcome ~ factor(awebuse),family=quasibinomial, design=nhissvy, na.action=na.omit))$coefficient)
+# Email use - Yes/No
+exp(summary(svyglm(outcome ~ factor(awebeml),family=quasibinomial, design=nhissvy, na.action=na.omit))$coefficient)
+# Enrollment in online research group - Yes/No
+exp(summary(svyglm(outcome ~ factor(aweborp),family=quasibinomial, design=nhissvy, na.action=na.omit))$coefficient)
+
+# Univariate analysis - Exposure of interest
+# Smoking status
+exp(summary(svyglm(outcome ~ factor(smkstat2),family=quasibinomial, design=nhissvy, na.action=na.omit))$coefficient)
+# Alcohol drinking status
+exp(summary(svyglm(outcome ~ factor(alcstat2),family=quasibinomial, design=nhissvy, na.action=na.omit))$coefficient)
+
+## Multivariate analysis controlling for all covariates
+## Enrollment in online resrach group (aweborp) is dropped from the analysis because in the complete case analysis, all samples have a single level among the samples included in the analysis. This was suggested by the error message: Error in summary(svyglm(outcome ~ smkstat2 + agecat + sex + r_maritl +  :  error in evaluating the argument 'object' in selecting a method for function 'summary': Error in `contrasts<-`(`*tmp*`, value = contr.funs[1 + isOF[nn]]) : contrasts can be applied only to factors with 2 or more levels"
+# Fit the model
+glmx <- svyglm(outcome ~ factor(smkstat2) + factor(agecat) + factor(sex) + factor(r_maritl) + factor (region) + factor(racerpi2) + factor(bmicat) + factor(educ1) + factor(phstat) + factor(asicpuse) + factor(awebuse) + factor(awebeml),family=quasibinomial, design=nhissvy, na.action=na.omit)
+
+summary(svyglm(outcome ~ factor(smkstat2) + factor(agecat) + factor(sex) + factor(r_maritl) + factor (region) + factor(racerpi2) + factor(bmicat) + factor(educ1) + factor(phstat) + factor(asicpuse) + factor(awebuse) + factor(awebeml),family=quasibinomial, design=nhissvy, na.action=na.omit))
+# Get ORs
+exp(summary(svyglm(outcome ~ factor(smkstat2) + factor(agecat) + factor(sex) + factor(r_maritl) + factor (region) + factor(racerpi2) + factor(bmicat) + factor(educ1) + factor(phstat) + factor(asicpuse) + factor(awebuse) + factor(awebeml),family=quasibinomial, design=nhissvy, na.action=na.omit))$coefficient)
+# get CIs
+exp(confint(glmx))
+
+# Fit the model
+glmy <- svyglm(outcome ~ factor(alcstat2) + factor(agecat) + factor(sex) + factor(r_maritl) + factor (region) + factor(racerpi2) + factor(bmicat) + factor(educ1) + factor(phstat) + factor(asicpuse) + factor(awebuse) + factor(awebeml),family=quasibinomial, design=nhissvy, na.action=na.omit)
+
+summary(svyglm(outcome ~ factor(alcstat2) + factor(agecat) + factor(sex) + factor(r_maritl) + factor (region) + factor(racerpi2) + factor(bmicat) + factor(educ1) + factor(phstat) + factor(asicpuse) + factor(awebuse) + factor(awebeml),family=quasibinomial, design=nhissvy, na.action=na.omit))
+# Get ORs
+exp(summary(svyglm(outcome ~ factor(alcstat2) + factor(agecat) + factor(sex) + factor(r_maritl) + factor (region) + factor(racerpi2) + factor(bmicat) + factor(educ1) + factor(phstat) + factor(asicpuse) + factor(awebuse) + factor(awebeml),family=quasibinomial, design=nhissvy, na.action=na.omit))$coefficient)
+# get CIs
+exp(confint(glmy))
+
+# Model fitting all variables
+# Fit the model
+glmz <- svyglm(outcome ~ factor(smkstat2) + factor(alcstat2) + factor(agecat) + factor(sex) + factor(r_maritl) + factor (region) + factor(racerpi2) + factor(bmicat) + factor(educ1) + factor(phstat) + factor(asicpuse) + factor(awebuse) + factor(awebeml),family=quasibinomial, design=nhissvy, na.action=na.omit)
+
+summary(svyglm(outcome ~ factor(smkstat2) + factor(alcstat2) + factor(agecat) + factor(sex) + factor(r_maritl) + factor (region) + factor(racerpi2) + factor(bmicat) + factor(educ1) + factor(phstat) + factor(asicpuse) + factor(awebuse) + factor(awebeml),family=quasibinomial, design=nhissvy, na.action=na.omit))
+# Get ORs
+exp(summary(svyglm(outcome ~ factor(smkstat2) + factor(alcstat2) + factor(agecat) + factor(sex) + factor(r_maritl) + factor (region) + factor(racerpi2) + factor(bmicat) + factor(educ1) + factor(phstat) + factor(asicpuse) + factor(awebuse) + factor(awebeml),family=quasibinomial, design=nhissvy, na.action=na.omit))$coefficient)
+# get CIs
+exp(confint(glmz))
+
 ```
 
-The data suggested that people with using computer to obtain health information are highly significantly associated with most co-variates included in the analysis. The health behavior measures: smoking status, alcohol drinking status, as well as measures of activity levels were also associated with use of computer to obtain health information. (The statistical models still needs to be adjusted since some extreme values were generated.)
+
+The data suggested that women has 1.76 (95% confidence interval [CI]: 1.64, 1.91) times higher odds of than men to use internet to obtain health information, adjusting for all covariates. Elderly aged 65 years and above had 0.84 (95% CI: 0.75, 0.93) times lower odds of using internet to seek health information. Compared to single/unmarried people, married people or those living with partner had 1.12 (95% CI: 1.01, 1.25) higher odds, while divorced/seperated 0.94 (95% CI: 0.82, 1.08) and widowed 0.70 (95% CI: 0.57, 0.86) people has lower odds of using internet to look for health topics. White subjects generally had higher odds of using internet to get health information than other ethinicity groups. Higher education level and poorer general health condition is associated with increasing odds of using internet to obtain health information. These results were consistent with literatures.
+
+For smoking status, former smoker is statistically significantly associated with 1.29 (95% CI: 1.17, 1.41) times higher odds of using internet to get health information compared to people who never smoked. Compared to never smokers, current someday smokers had 1.03 (95% CI: 0.87, 1.22) times higher odds and every day smoker had 0.93 (95% CI: 0.81, 1.07) times lower odds although both estimates were not statistically significant. One possible explanation is that health information obtained from the internet helped past smokers to quit smoking. For alcohol drinking status, former drinkers (1.26, 95% CI: 1.09, 1.46), current light drinkers (1.37, 95% CI: 1.23, 1.51) or current moderate to heavier drinkers (1.46, 95% CI: 1.29, 1.65) all had statistically significantly higher odds of using internet to seek for health information than life time abstainers. 
+
+One strength of the study is that it uses a large national representative survey and collected information on a wide range of covariates. However, because of its cross-sectional nature of the study, we could not establish a causal relationship between the exposure and outcome. Future studies are needed to investigate the causal relationship between the two and to understand the underlying mechanism of the observed associations.
+
+This study suggested significant associations between people with different health behavior and internet use to search for health information. This information could help researchers to understand the characteristics of the population actively looking for health information online and may use the information to develop health promotion programs or behavior intervention programs that better targets the population at risk. 
+
